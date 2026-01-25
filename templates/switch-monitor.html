@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pinger</title>
+    <link rel="stylesheet" href="../static/style.css">
+    <script src="../static/script.js" defer></script>
+</head>
+<body>
+    <h1 class="page-title">Ping Monitor</h1>
+
+    <div class="search-wrapper">
+        <input type="search" id="search-input" placeholder="Search by name or IP..." data-search>
+    </div>
+
+    <div class="device-cards" data-device-cards-container></div>
+
+    <template data-device-template>
+        <div class="card">
+            <div class="title-name"></div>
+            <div class="title-ip"></div>
+            <div class="title-type"></div>
+        </div>
+    </template>
+</body>
+</html>

@@ -1,0 +1,102 @@
+/* create color variables */
+:root{
+    --background: rgb(147, 147, 147);
+    --devicebackground: rgb(59, 59, 59);
+    --text1: rgb(255, 255, 255);
+    --text2: rgb(192, 192, 192);
+    --textHover: #b9b9b9;
+    --online: #0f0;
+    --offline: #f00;
+}
+
+html{
+    scroll-behavior: smooth;
+    /* makes smooth scrolling  */
+    color: var(--text1);
+    /* make all text automaticly the same color */   
+}
+
+/* reset box sizing - it allow us to include padding and border in element total width and hight regardless the browser default settigns*/
+::before,*::after{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    background: var(--background);
+    font-family: "Poppins", sans-serif;
+    font-weight: 200;
+}
+
+.hide{
+    display: none;
+}
+
+/* Page title */
+.page-title {
+    margin: 1rem;
+    padding-top: 1rem;
+}
+
+/* Search */
+.search-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: .25rem;
+}
+
+#search-input {
+    padding: .5rem 1rem;
+    margin: 1rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    outline: none;
+}
+
+/* Device Cards */
+.device-cards{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.card{
+    border-radius: 5px;
+    padding: .5rem;
+    background: var(--devicebackground);
+    border: 2px solid transparent;
+    transition: border-color .3s ease, box-shadow .3s ease;
+}
+
+.card > .title-type{
+    font-size: .75rem;
+    color: var(--text2);
+}
+
+.card.online{
+    border-color: var(--online);
+    box-shadow: 0 0 10px var(--online), 0 0 20px rgba(0,255,0,0.6);
+    animation: pulse-green 2s infinite;
+
+}
+
+.card.offline{
+    border-color: var(--offline);
+    box-shadow: 0 0 10px var(--offline), 0 0 20px rgba(255,0,0,0.6);
+    animation: pulse-red 2s infinite;
+}
+
+@keyframes pulse-green {
+    0%   { box-shadow: 0 0 5px var(--online); }
+    50%  { box-shadow: 0 0 20px var(--online); }
+    100% { box-shadow: 0 0 5px var(--online); }
+}
+
+@keyframes pulse-red {
+    0%   { box-shadow: 0 0 5px var(--offline); }
+    50%  { box-shadow: 0 0 20px var(--offline); }
+    100% { box-shadow: 0 0 5px var(--offline); }
+}
