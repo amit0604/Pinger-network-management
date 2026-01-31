@@ -4,6 +4,8 @@ const searchInput = document.querySelector('[data-search]');
 const onlineCountElement = document.querySelector('.online-count');
 const offlineCountElement = document.querySelector('.offline-count');
 const availabilityElement = document.querySelector('.availability');
+const onlineListElement = document.querySelector('.online-list');
+const offlineListElement = document.querySelector('.offline-list');
 
 let devices = [];
 let cardsByIp = {};
@@ -42,8 +44,32 @@ function updateHealthStatistics(status) {
     const values = Object.values(status);
     const total = values.length;
     const online = values.filter(v => v).length;
+    const onlineList = [];
     const offline = total - online;
+    const offlineList = [];
     const availability = total > 0 ? Math.round((online / total) * 100) : 0;
+
+    Object.entries(status).forEach(([ip, isOnline]) => {
+        if (isOnline) onlineList.push(ip);
+        else offlineList.push(ip);
+    });
+
+    // Update online/offline lists
+    onlineListElement.innerHTML = '';
+    onlineList.forEach(ip => {
+        const div = document.createElement('div');
+        div.textContent = ip;
+        onlineListElement.appendChild(div);
+    });
+
+    offlineListElement.innerHTML = '';
+    offlineList.forEach(ip => {
+        const div = document.createElement('div');
+        div.textContent = ip;
+        offlineListElement.appendChild(div);
+    });
+
+    // Update counts   
 
     onlineCountElement.textContent = `🟢 Online: ${online}`;
     offlineCountElement.textContent = `🔴 Offline: ${offline}`;
@@ -56,7 +82,7 @@ setInterval(() => {
         .then(res => res.json())
         .then(status => {
             updateHealthStatistics(status);
-            
+
             Object.entries(status).forEach(([ip, online]) => {
                 const card = cardsByIp[ip];
                 if (!card) return;
