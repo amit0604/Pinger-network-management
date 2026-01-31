@@ -100,3 +100,20 @@ body{
     50%  { box-shadow: 0 0 20px var(--offline); }
     100% { box-shadow: 0 0 5px var(--offline); }
 }
+
+.health-container {
+    margin: 1rem;
+    padding: 1rem;
+    background: var(--devicebackground);
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+.health-statistics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: space-evenly;
+    font-size: 1.2rem;
+}

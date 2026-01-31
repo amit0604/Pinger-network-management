@@ -5,8 +5,8 @@ def load_devices():
     try:
         base_directory = os.path.dirname(os.path.abspath(__file__))
         devices_file_path = os.path.join(base_directory, 'static', 'devices.json')
-        
-        with open(devices_file_path, 'r') as devices_file:
+
+        with open(devices_file_path, 'r', encoding='utf-8') as devices_file:
             devices = json.load(devices_file)
 
         print("Devices imported successfully.")

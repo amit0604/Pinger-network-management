@@ -1,505 +1,505 @@
 [
     {
         "name": "A_Meida",
-        "ip": "180.108.199.79",
+        "ip": "192.168.1.217",
         "type":"juniper",
         "group":"network-switch"
     },
     {
         "name": "BALK",
-        "ip": "180.108.199.23",
+        "ip": "192.168.1.23",
         "type":"juniper",
         "group":"network-switch"
     },
     {
         "name": "Barak_2",
-        "ip": "180.108.199.66",
+        "ip": "192.168.1.66",
         "type":"juniper",
         "group":"network-switch"
     },
     {
         "name": "Computer_Class",
-        "ip": "180.108.199.76",
+        "ip": "192.168.1.76",
         "type":"juniper",
         "group":"network-switch"
     },
     {
         "name": "Guz_Building",
-        "ip": "180.108.199.63",
+        "ip": "192.168.1.63",
         "type":"juniper",
         "group":"network-switch"
     },
     {
         "name": "Guz_Floor_3",
-        "ip": "180.108.199.156",
+        "ip": "192.168.1.156",
         "type":"juniper",
         "group":"network-switch"
     },
     {
         "name": "Hadracha",
-        "ip": "180.108.199.151",
+        "ip": "192.168.1.151",
         "type":"juniper",
         "group":"network-switch"
     },
     {
         "name": "Hadshanut",
-        "ip": "180.108.199.70",
+        "ip": "192.168.1.70",
         "type":"juniper",
         "group":"network-switch"
     },
     {
         "name": "Handasa_Mechani_Sharon",
-        "ip": "180.108.199.73",
+        "ip": "192.168.1.73",
         "type":"juniper",
         "group":"network-switch"
     },
     {
         "name": "Handasa_Mechanit",
-        "ip": "180.108.199.75",
+        "ip": "192.168.1.75",
         "type":"juniper",
         "group":"network-switch"
     },
     {
         "name": "Handasa_VC",
-        "ip": "180.108.199.60",
+        "ip": "192.168.1.60",
         "type":"juniper",
         "group":"network-switch"
     },
     {
         "name": "Hashmaliia",
-        "ip": "180.108.199.78",
+        "ip": "192.168.1.78",
         "type":"juniper",
         "group":"network-switch"
     },
     {
         "name": "Kesher_Vhagbara",
-        "ip": "180.108.199.44",
+        "ip": "192.168.1.44",
         "type":"juniper",
         "group":"network-switch"
     },
     {
         "name": "KitatEihut",
-        "ip": "180.108.199.80",
+        "ip": "192.168.1.80",
         "type":"juniper",
         "group":"network-switch"
     },
     {
         "name": "Kronot",
-        "ip": "180.108.199.77",
+        "ip": "192.168.1.77",
         "type":"juniper",
         "group":"network-switch"
     },
     {
         "name": "LA",
-        "ip": "180.108.199.71",
+        "ip": "192.168.1.71",
         "type":"juniper",
         "group":"network-switch"
     },
     {
         "name": "Mabas",
-        "ip": "180.108.199.90",
+        "ip": "192.168.1.90",
         "type":"juniper",
         "group":"network-switch"
     },
     {
         "name": "MahsanOtomati",
-        "ip": "180.108.199.61",
+        "ip": "192.168.1.61",
         "type":"juniper",
         "group":"network-switch"
     },
     {
         "name": "Mini_Israel_New",
-        "ip": "180.108.199.92",
+        "ip": "192.168.1.92",
         "type":"juniper",
         "group":"network-switch"
     },
     {
         "name": "Mofet_Second_Floor",
-        "ip": "180.108.199.85",
+        "ip": "192.168.1.85",
         "type":"juniper",
         "group":"network-switch"
     },
     {
         "name": "Nesher_Gimel_VC",
-        "ip": "180.108.199.165",
+        "ip": "192.168.1.165",
         "type":"juniper",
         "group":"network-switch"
     },
     {
         "name": "Nesher_Main_VC",
-        "ip": "180.108.199.164",
+        "ip": "192.168.1.164",
         "type":"juniper",
         "group":"network-switch"
     },
     {
         "name": "KO",
-        "ip": "180.108.199.40",
+        "ip": "192.168.1.40",
         "type":"juniper",
         "group":"network-switch"
     },
     {
         "name": "Netunim",
-        "ip": "180.108.199.108",
+        "ip": "192.168.1.108",
         "type":"juniper",
         "group":"network-switch"
     },
     {
         "name": "R_SHVIL108_C1",
-        "ip": "180.108.199.235",
+        "ip": "192.168.1.235",
         "type":"juniper",
         "group":"network-switch"
     },
     {
         "name": "R_SHVIL108_C2",
-        "ip": "180.108.199.236",
+        "ip": "192.168.1.236",
         "type":"juniper",
         "group":"network-switch"
     },
     {
         "name": "Rehev108",
-        "ip": "180.108.199.22",
+        "ip": "192.168.1.22",
         "type":"juniper",
         "group":"network-switch"
     },
     {
         "name": "Rekhesh",
-        "ip": "180.108.199.68",
+        "ip": "192.168.1.68",
         "type":"juniper",
         "group":"network-switch"
     },
     {
         "name": "Sadnat_Erez_Mashlat",
-        "ip": "180.108.199.50",
+        "ip": "192.168.1.50",
         "type":"juniper",
         "group":"network-switch"
     },
     {
         "name": "Tihkur",
-        "ip": "180.108.199.166",
+        "ip": "192.168.1.166",
         "type":"juniper",
         "group":"network-switch"
     },
     {
         "name": "Zihui",
-        "ip": "180.108.199.210",
+        "ip": "192.168.1.210",
         "type":"juniper",
         "group":"network-switch"
     },
     {
         "name": "hagana",
-        "ip": "180.108.199.69",
+        "ip": "192.168.1.69",
         "type":"juniper",
         "group":"network-switch"
     },
     {
         "name": "mabat",
-        "ip": "180.108.199.161",
+        "ip": "192.168.1.161",
         "type":"juniper",
         "group":"network-switch"
     },
     {
         "name": "meteg_sivim",
-        "ip": "180.108.199.109",
+        "ip": "192.168.1.109",
         "type":"juniper",
         "group":"network-switch"
     },
     {
         "name": "mihshuv",
-        "ip": "180.108.199.111",
+        "ip": "192.168.1.111",
         "type":"juniper",
         "group":"network-switch"
     },
     {
         "name": "mini_israel_cameras",
-        "ip": "180.108.199.200",
+        "ip": "192.168.1.200",
         "type":"juniper",
         "group":"network-switch"
     },
     {
         "name": "misrad_rishom",
-        "ip": "180.108.199.103",
+        "ip": "192.168.1.103",
         "type":"juniper",
         "group":"network-switch"
     },
     {
         "name": "yavil",
-        "ip": "180.108.199.91",
+        "ip": "192.168.1.91",
         "type":"juniper",
         "group":"network-switch"
     },
     {
         "name": "DataCenter",
-        "ip": "180.108.199.31",
+        "ip": "192.168.1.31",
         "type":"juniper",
         "group":"network-switch"
     },
     {
         "name": "Memorial",
-        "ip": "180.108.199.43",
+        "ip": "192.168.1.43",
         "type":"juniper",
         "group":"network-switch"
     },
     {
         "name": "Shadab_Hozi",
-        "ip": "180.108.199.94",
+        "ip": "192.168.1.94",
         "type":"juniper",
         "group":"network-switch"
     },
     {
         "name": "heder_ochel_ktzinim",
-        "ip": "180.108.199.136",
+        "ip": "192.168.1.136",
         "type":"juniper",
         "group":"network-switch"
     },
     {
         "name": "Guz_Floor_3_new7200",
-        "ip": "180.108.199.157",
+        "ip": "192.168.1.157",
         "type":"juniper",
         "group":"network-switch"
     },
     {
         "name": "S_SHVIL0108_HAMAL_NEW",
-        "ip": "180.108.199.169",
+        "ip": "192.168.1.169",
         "type":"juniper",
         "group":"network-switch"
     },
     {
         "name": "TP_NESHER",
-        "ip": "180.108.199.8",
+        "ip": "192.168.1.8",
         "type":"juniper",
         "group":"network-switch"
     },
     {
         "name": "Shvil108_Newswitch",
-        "ip": "180.108.199.45",
+        "ip": "192.168.1.45",
         "type":"juniper",
         "group":"network-switch"
     },
     {
         "name": "מפט מישני",
-        "ip": "180.108.199.93",
+        "ip": "192.168.1.93",
         "type":"juniper",
         "group":"network-switch"
     },
     {
         "name": "BINUY_BETIHUT",
-        "ip": "180.108.199.9",
+        "ip": "192.168.1.9",
         "type":"juniper",
         "group":"network-switch"
     },
     {
         "name": "METEG_GAF_KISHUR_1",
-        "ip": "180.108.199.110",
+        "ip": "192.168.1.110",
         "type":"juniper",
         "group":"network-switch"
     },
     {
         "name": "mahsan_18382",
-        "ip": "180.108.199.107",
+        "ip": "192.168.1.107",
         "type":"juniper",
         "group":"network-switch"
     },
     {
         "name": "Afsenaut_108",
-        "ip": "180.108.199.117",
+        "ip": "192.168.1.117",
         "type":"juniper",
         "group":"network-switch"
     },
     {
         "name": "ahsana_shamish",
-        "ip": "180.108.199.120",
+        "ip": "192.168.1.120",
         "type":"juniper",
         "group":"network-switch"
     },
     {
         "name": "l4Donam",
-        "ip": "180.108.199.124",
+        "ip": "192.168.1.124",
         "type":"juniper",
         "group":"network-switch"
     },
     {
         "name": "Maabadat_Mhshub_Lahav",
-        "ip": "180.108.199.54",
+        "ip": "192.168.1.54",
         "type":"juniper",
         "group":"network-switch"
     },
     {
         "name": "mahsan_18333",
-        "ip": "180.108.199.104",
+        "ip": "192.168.1.104",
         "type":"juniper",
         "group":"network-switch"
     },
     {
         "name": "mahsan_18374",
-        "ip": "180.108.199.105",
+        "ip": "192.168.1.105",
         "type":"juniper",
         "group":"network-switch"
     },
     {
         "name": "mahsan_18382",
-        "ip": "180.108.199.107",
+        "ip": "192.168.1.107",
         "type":"juniper",
         "group":"network-switch"
     },
     {
         "name": "mamone_batichot_binoy108",
-        "ip": "180.108.199.145",
+        "ip": "192.168.1.145",
         "type":"juniper",
         "group":"network-switch"
     },
     {
         "name": "METEG_GAF_KISHUR_1",
-        "ip": "180.108.199.110",
+        "ip": "192.168.1.110",
         "type":"juniper",
         "group":"network-switch"
     },
     {
         "name": "METEG_GAF_KISHUR2",
-        "ip": "180.108.199.100",
+        "ip": "192.168.1.100",
         "type":"juniper",
         "group":"network-switch"
     },
     {
         "name": "Meteg_ulam_iruim",
-        "ip": "180.108.199.88",
+        "ip": "192.168.1.88",
         "type":"juniper",
         "group":"network-switch"
     },
     {
         "name": "mfkadat_mahsha",
-        "ip": "180.108.199.115",
+        "ip": "192.168.1.115",
         "type":"juniper",
         "group":"network-switch"
     },
     {
         "name": "Mifkedet_Lahav_New",
-        "ip": "180.108.199.57",
+        "ip": "192.168.1.57",
         "type":"juniper",
         "group":"network-switch"
     },
     {
         "name": "Mifkedet_Lahav_old",
-        "ip": "180.108.199.113",
+        "ip": "192.168.1.113",
         "type":"juniper",
         "group":"network-switch"
     },
     {
         "name": "Mirpaha108",
-        "ip": "180.108.199.135",
+        "ip": "192.168.1.135",
         "type":"juniper",
         "group":"network-switch"
     },
     {
         "name": "Nama_1",
-        "ip": "180.108.199.128",
+        "ip": "192.168.1.128",
         "type":"juniper",
         "group":"network-switch"
     },
     {
         "name": "Nama_2",
-        "ip": "180.108.199.129",
+        "ip": "192.168.1.129",
         "type":"juniper",
         "group":"network-switch"
     },
     {
         "name": "meyuhadim",
-        "ip": "180.108.199.64",
+        "ip": "192.168.1.64",
         "type":"juniper",
         "group":"network-switch"
     },
     {
         "name": "Guz_Floor_2",
-        "ip": "180.108.199.65",
+        "ip": "192.168.1.65",
         "type":"juniper",
         "group":"network-switch"
     },
     {
         "name": "prikast",
-        "ip": "180.108.199.10",
+        "ip": "192.168.1.10",
         "type":"juniper",
         "group":"network-switch"
     },
     {
         "name": "rehev_meyuhadim",
-        "ip": "180.108.199.55",
+        "ip": "192.168.1.55",
         "type":"juniper",
         "group":"network-switch"
     },
     {
         "name": "Rehev_Meyuhadim_2",
-        "ip": "180.108.199.155",
+        "ip": "192.168.1.155",
         "type":"juniper",
         "group":"network-switch"
     },
     {
         "name": "HACHSANA_A",
-        "ip": "180.108.199.20",
+        "ip": "192.168.1.20",
         "type":"juniper",
         "group":"network-switch"
     },
     {
         "name": "Gili_Mitbah",
-        "ip": "180.108.199.84",
+        "ip": "192.168.1.84",
         "type":"juniper",
         "group":"network-switch"
     },
     {
         "name": "Machsan_Otumati",
-        "ip": "180.108.199.123",
+        "ip": "192.168.1.123",
         "type":"juniper",
         "group":"network-switch"
     },
     {
         "name": "MARPEA",
-        "ip": "180.108.199.118",
+        "ip": "192.168.1.118",
         "type":"juniper",
         "group":"network-switch"
     },
     {
         "name": "NAMA3",
-        "ip": "180.108.199.127",
+        "ip": "192.168.1.127",
         "type":"juniper",
         "group":"network-switch"
     },
     {
         "name": "zava_hovala",
-        "ip": "180.108.199.131",
+        "ip": "192.168.1.131",
         "type":"juniper",
         "group":"network-switch"
     },
     {
         "name": "MILOEIM",
-        "ip": "180.108.199.206",
+        "ip": "192.168.1.206",
         "type":"juniper",
         "group":"network-switch"
     },
     {
         "name": "VISUT_YASHIR",
-        "ip": "180.108.199.142",
+        "ip": "192.168.1.142",
         "type":"juniper",
         "group":"network-switch"
     },
     {
         "name": "shikma_1",
-        "ip": "180.108.199.140",
+        "ip": "192.168.1.140",
         "type":"juniper",
         "group":"network-switch"
     },
     {
         "name": "telematria",
-        "ip": "180.108.199.47",
+        "ip": "192.168.1.47",
         "type":"juniper",
         "group":"network-switch"
     },
     {
         "name": "pituah_humra",
-        "ip": "180.108.199.48",
+        "ip": "192.168.1.48",
         "type":"juniper",
         "group":"network-switch"
     },
     {
         "name": "WEWORK",
-        "ip": "180.108.199.112",
+        "ip": "192.168.1.112",
         "type":"juniper",
         "group":"network-switch"
     }

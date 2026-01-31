@@ -1,6 +1,9 @@
 const deviceCardTemplate = document.querySelector('[data-device-template]');
 const deviceCardsContainer = document.querySelector('[data-device-cards-container]');
 const searchInput = document.querySelector('[data-search]');
+const onlineCountElement = document.querySelector('.online-count');
+const offlineCountElement = document.querySelector('.offline-count');
+const availabilityElement = document.querySelector('.availability');
 
 let devices = [];
 let cardsByIp = {};
@@ -35,11 +38,25 @@ searchInput.addEventListener('input', e => {
     });
 });
 
+function updateHealthStatistics(status) {
+    const values = Object.values(status);
+    const total = values.length;
+    const online = values.filter(v => v).length;
+    const offline = total - online;
+    const availability = total > 0 ? Math.round((online / total) * 100) : 0;
+
+    onlineCountElement.textContent = `🟢 Online: ${online}`;
+    offlineCountElement.textContent = `🔴 Offline: ${offline}`;
+    availabilityElement.textContent = `📊 Availability: ${availability}%`;
+}
+
 // Poll backend
 setInterval(() => {
     fetch('/api/status')
         .then(res => res.json())
         .then(status => {
+            updateHealthStatistics(status);
+            
             Object.entries(status).forEach(([ip, online]) => {
                 const card = cardsByIp[ip];
                 if (!card) return;
