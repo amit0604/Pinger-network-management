@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pinger</title>
+    <link rel="stylesheet" href="../static/style.css">
+    <script src="../static/script-dashboard.js" defer></script>
+</head>
+<body>
+    <h1 class="page-title">Dashboard</h1>
+    <div class="dashboard-grid">
+
+    <!-- Category: Trends & Stability -->
+    <section class="dashboard-panel">
+        <h2 class="panel-title">Trends & Stability</h2>
+
+        <div class="uptime-meter">
+            <div class="meter-circle">
+                <svg viewBox="0 0 36 36" class="circular-chart">
+                    <path class="circle-bg"
+                          d="M18 2.0845
+                             a 15.9155 15.9155 0 0 1 0 31.831
+                             a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="circle"
+                          stroke-dasharray="0, 100"
+                          d="M18 2.0845
+                             a 15.9155 15.9155 0 0 1 0 31.831
+                             a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                </svg>
+                <div class="meter-text">
+                    <span id="uptime-value">--%</span>
+                    <small>Current Uptime</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="dashboard-panel">
+            <h2>🚨 Worst Device Right Now</h2>
+
+            <div id="worst-device" class="worst-device ok">
+                <span class="device-name">All devices online</span>
+            </div>
+        </div>
+
+
+    </section>
+
+</div>
+
+</body>
+</html>

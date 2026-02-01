@@ -17,6 +17,11 @@ def switch_monitor():
     devices = load_devices()
     return render_template('switch-monitor.html', devices=devices)
 
+@app.route('/dashboard')
+def dashboard():
+    devices = load_devices()
+    return render_template('dashboard.html', devices=devices)
+
 @app.route('/api/status')
 def api_status():
     return jsonify(get_status())

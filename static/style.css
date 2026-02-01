@@ -124,7 +124,7 @@ body{
 
 .dropdown-content {
     position: absolute;
-    top: 120%;
+    top: 95%;
     left: -50%;
     min-width: 180px;
     max-width: 90vw;
@@ -147,7 +147,6 @@ body{
     padding: 0.35rem 0.5rem;
     border-radius: .25rem;
     white-space: nowrap;
-    /* transition: background-color 0.3s ease; */
 }
 
 .dropdown-content div:hover {
@@ -178,4 +177,99 @@ body{
         font-size: 0.9rem;
         max-height: 15rem;
     }
+}
+
+/* Dashboard layout */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.dashboard-panel {
+    background: var(--devicebackground);
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 1rem;
+    max-width: 400px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.panel-title {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+/* Uptime meter */
+.uptime-meter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.meter-circle {
+    position: relative;
+    width: 160px;
+    height: 160px;
+}
+
+.circular-chart {
+    width: 100%;
+    height: 100%;
+}
+
+.circle-bg {
+    fill: none;
+    stroke: #2a2a2a;
+    stroke-width: 3.8;
+}
+
+.circle {
+    fill: none;
+    stroke-width: 3.8;
+    stroke-linecap: round;
+    stroke: var(--online);
+    transition: stroke-dasharray 0.8s ease, stroke 0.3s ease;
+}
+
+.meter-text {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.meter-text span {
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+
+.meter-text small {
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+
+/* Worst device indicator */
+.worst-device {
+    margin-top: 0.75rem;
+    padding: 0.75rem 1rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.worst-device.ok {
+    background: rgba(0, 255, 0, 0.1);
+    color: var(--online);
+}
+
+.worst-device.bad {
+    background: rgba(255, 0, 0, 0.15);
+    color: var(--offline);
+    animation: pulse-red 2s infinite;
 }
