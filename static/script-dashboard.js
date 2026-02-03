@@ -11,7 +11,6 @@ fetch('/api/status')
             : Math.round((online / total) * 100);
 
         updateUptimeMeter(availability);
-        updateWorstDevice(status);
     });
 
 function updateUptimeMeter(percent) {
@@ -30,25 +29,48 @@ function updateUptimeMeter(percent) {
     }
 }
 
-function updateWorstDevice(status) {
+fetch('/api/history')
+    .then(res => res.json())
+    .then(history => {
+        updateWorstDeviceFromHistory(history);
+    });
+
+function updateWorstDeviceFromHistory(history) {
     const container = document.getElementById('worst-device');
 
-    const offlineDevices = Object.entries(status)
-        .filter(([_, online]) => online === false)
-        .map(([ip]) => ip)
-        .sort(); // deterministic
+    let worstIp = null;
+    let worstUptime = 101;
 
-    if (offlineDevices.length === 0) {
+    Object.entries(history).forEach(([ip, data]) => {
+        if (data.minutes === 0) return;
+
+        if (data.uptime < worstUptime) {
+            worstUptime = data.uptime;
+            worstIp = ip;
+        }
+    });
+
+    if (!worstIp) {
         container.className = 'worst-device ok';
-        container.innerHTML = `<span class="device-name">All devices online</span>`;
+        container.innerHTML = `
+            <span class="device-name">No history yet</span>
+            <span>—</span>
+        `;
         return;
     }
 
-    const worstIp = offlineDevices[0];
+    if (worstUptime === 100) {
+        container.className = 'worst-device ok';
+        container.innerHTML = `
+            <span class="device-name">All devices stable</span>
+            <span>100%</span>
+        `;
+        return;
+    }
 
     container.className = 'worst-device bad';
     container.innerHTML = `
         <span class="device-name">${worstIp}</span>
-        <span>OFFLINE</span>
+        <span>${worstUptime}% uptime</span>
     `;
 }
