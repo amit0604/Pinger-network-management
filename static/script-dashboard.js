@@ -1,21 +1,50 @@
-fetch('/api/status')
-    .then(res => res.json())
-    .then(status => {
-        const values = Object.values(status);
+/* ================================
+   Dashboard Auto Refresh Script
+   ================================ */
 
-        const total = values.length;
-        const online = values.filter(v => v === true).length;
+/* Prevent overlapping fetch cycles */
+let dashboardBusy = false;
 
-        const availability = total === 0
-            ? 0
-            : Math.round((online / total) * 100);
+/* ---------- MAIN REFRESH LOOP ---------- */
+function refreshDashboard() {
+    if (dashboardBusy) return;
+    dashboardBusy = true;
 
-        updateUptimeMeter(availability);
+    Promise.all([
+        fetch('/api/status').then(r => r.json()),
+        fetch('/api/history').then(r => r.json())
+    ])
+    .then(([status, history]) => {
+        updateAvailability(status);
+        updateWorstDeviceFromHistory(history);
+    })
+    .catch(err => {
+        console.error('Dashboard refresh failed:', err);
+    })
+    .finally(() => {
+        dashboardBusy = false;
     });
+}
+
+/* ---------- AVAILABILITY / UPTIME ---------- */
+function updateAvailability(status) {
+    const values = Object.values(status);
+
+    const total = values.length;
+    const online = values.filter(v => v === true).length;
+
+    const availability = total === 0
+        ? 0
+        : Math.round((online / total) * 100);
+
+    updateUptimeMeter(availability);
+}
 
 function updateUptimeMeter(percent) {
     const circle = document.querySelector('.circle');
     const value = document.getElementById('uptime-value');
+
+    if (!circle || !value) return;
 
     circle.setAttribute('stroke-dasharray', `${percent}, 100`);
     value.textContent = `${percent}%`;
@@ -23,26 +52,22 @@ function updateUptimeMeter(percent) {
     if (percent < 50) {
         circle.style.stroke = 'var(--offline)';
     } else if (percent < 80) {
-        circle.style.stroke = '#f1c40f';
+        circle.style.stroke = 'var(--unknown)';
     } else {
         circle.style.stroke = 'var(--online)';
     }
 }
 
-fetch('/api/history')
-    .then(res => res.json())
-    .then(history => {
-        updateWorstDeviceFromHistory(history);
-    });
-
+/* ---------- WORST DEVICE (FROM HISTORY) ---------- */
 function updateWorstDeviceFromHistory(history) {
     const container = document.getElementById('worst-device');
+    if (!container) return;
 
     let worstIp = null;
     let worstUptime = 101;
 
     Object.entries(history).forEach(([ip, data]) => {
-        if (data.minutes === 0) return;
+        if (!data || data.samples === 0) return;
 
         if (data.uptime < worstUptime) {
             worstUptime = data.uptime;
@@ -74,3 +99,11 @@ function updateWorstDeviceFromHistory(history) {
         <span>${worstUptime}% uptime</span>
     `;
 }
+
+/* ---------- INIT ---------- */
+
+/* Initial load */
+refreshDashboard();
+
+/* Update every 60 seconds */
+setInterval(refreshDashboard, 60 * 1000);
