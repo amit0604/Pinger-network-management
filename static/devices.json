@@ -1,176 +1,205 @@
 [
-    {
-        "name": "A_Meida",
-        "ip": "192.168.1.217",
-        "type":"juniper",
-        "group":"network-switch"
-    },
-    {
-        "name": "BALK",
-        "ip": "192.168.1.23",
-        "type":"juniper",
-        "group":"network-switch"
-    },
-    {
-        "name": "Barak_2",
-        "ip": "192.168.1.1",
-        "type":"juniper",
-        "group":"network-switch"
-    },
-    {
-        "name": "Computer_Class",
-        "ip": "192.168.1.32",
-        "type":"juniper",
-        "group":"network-switch"
-    },
-    {
-        "name": "Guz_Building",
-        "ip": "192.168.1.63",
-        "type":"juniper",
-        "group":"network-switch"
-    },
-    {
-        "name": "Guz_Floor_3",
-        "ip": "192.168.1.156",
-        "type":"juniper",
-        "group":"network-switch"
-    },
-    {
-        "name": "Hadracha",
-        "ip": "192.168.1.251",
-        "type":"juniper",
-        "group":"network-switch"
-    },
-    {
-        "name": "Hadshanut",
-        "ip": "192.168.1.253",
-        "type":"juniper",
-        "group":"network-switch"
-    },
-    {
-        "name": "Handasa_Mechani_Sharon",
-        "ip": "192.168.1.73",
-        "type":"juniper",
-        "group":"network-switch"
-    },
-    {
-        "name": "Handasa_Mechanit",
-        "ip": "192.168.1.75",
-        "type":"juniper",
-        "group":"network-switch"
-    },
-    {
-        "name": "Handasa_VC",
-        "ip": "192.168.1.60",
-        "type":"juniper",
-        "group":"network-switch"
-    },
-    {
-        "name": "Hashmaliia",
-        "ip": "192.168.1.78",
-        "type":"juniper",
-        "group":"network-switch"
-    },
-    {
-        "name": "Kesher_Vhagbara",
-        "ip": "192.168.1.44",
-        "type":"juniper",
-        "group":"network-switch"
-    },
-    {
-        "name": "KitatEihut",
-        "ip": "192.168.1.80",
-        "type":"juniper",
-        "group":"network-switch"
-    },
-    {
-        "name": "Kronot",
-        "ip": "192.168.1.77",
-        "type":"juniper",
-        "group":"network-switch"
-    },
-    {
-        "name": "LA",
-        "ip": "192.168.1.71",
-        "type":"juniper",
-        "group":"network-switch"
-    },
-    {
-        "name": "Mabas",
-        "ip": "192.168.1.90",
-        "type":"juniper",
-        "group":"network-switch"
-    },
-    {
-        "name": "MahsanOtomati",
-        "ip": "192.168.1.61",
-        "type":"juniper",
-        "group":"network-switch"
-    },
-    {
-        "name": "Mini_Israel_New",
-        "ip": "192.168.1.92",
-        "type":"juniper",
-        "group":"network-switch"
-    },
-    {
-        "name": "Mofet_Second_Floor",
-        "ip": "192.168.1.85",
-        "type":"juniper",
-        "group":"network-switch"
-    },
-    {
-        "name": "Nesher_Gimel_VC",
-        "ip": "192.168.1.165",
-        "type":"juniper",
-        "group":"network-switch"
-    },
-    {
-        "name": "Nesher_Main_VC",
-        "ip": "192.168.1.164",
-        "type":"juniper",
-        "group":"network-switch"
-    },
-    {
-        "name": "KO",
-        "ip": "192.168.1.40",
-        "type":"juniper",
-        "group":"network-switch"
-    },
-    {
-        "name": "Netunim",
-        "ip": "192.168.1.108",
-        "type":"juniper",
-        "group":"network-switch"
-    },
-    {
-        "name": "R_SHVIL108_C1",
-        "ip": "192.168.1.235",
-        "type":"juniper",
-        "group":"network-switch"
-    },
-    {
-        "name": "R_SHVIL108_C2",
-        "ip": "192.168.1.236",
-        "type":"juniper",
-        "group":"network-switch"
-    },
-    {
-        "name": "Rehev108",
-        "ip": "192.168.1.22",
-        "type":"juniper",
-        "group":"network-switch"
-    },
-    {
-        "name": "Rekhesh",
-        "ip": "192.168.1.68",
-        "type":"juniper",
-        "group":"network-switch"
-    },
-    {
-        "name": "WEWORK",
-        "ip": "192.168.1.112",
-        "type":"juniper",
-        "group":"network-switch"
-    }
+  {
+    "name": "A_Meida",
+    "ip": "192.168.1.217",
+    "type": "juniper",
+    "model": "EX2200-PoE-24P",
+    "group": "network-switch"
+  },
+  {
+    "name": "BALK",
+    "ip": "192.168.1.23",
+    "type": "juniper",
+    "model": "EX2200-PoE-24P",
+    "group": "network-switch"
+  },
+  {
+    "name": "Barak_2",
+    "ip": "192.168.1.1",
+    "type": "juniper",
+    "model": "EX2200-PoE-24P",
+    "group": "network-switch"
+  },
+  {
+    "name": "Computer_Class",
+    "ip": "192.168.1.32",
+    "type": "juniper",
+    "model": "EX2200-PoE-24P",
+    "group": "network-switch"
+  },
+  {
+    "name": "Guz_Building",
+    "ip": "192.168.1.63",
+    "type": "juniper",
+    "model": "EX2200-PoE-24P",
+    "group": "network-switch"
+  },
+  {
+    "name": "Guz_Floor_3",
+    "ip": "192.168.1.156",
+    "type": "juniper",
+    "model": "EX2200-PoE-24P",
+    "group": "network-switch"
+  },
+  {
+    "name": "Hadracha",
+    "ip": "192.168.1.251",
+    "type": "juniper",
+    "model": "EX2200-PoE-24P",
+    "group": "network-switch"
+  },
+  {
+    "name": "Hadshanut",
+    "ip": "192.168.1.253",
+    "type": "juniper",
+    "model": "EX2200-PoE-24P",
+    "group": "network-switch"
+  },
+  {
+    "name": "Handasa_Mechani_Sharon",
+    "ip": "192.168.1.73",
+    "type": "juniper",
+    "model": "EX2200-PoE-24P",
+    "group": "network-switch"
+  },
+  {
+    "name": "Handasa_Mechanit",
+    "ip": "192.168.1.75",
+    "type": "juniper",
+    "model": "EX2200-PoE-24P",
+    "group": "network-switch"
+  },
+  {
+    "name": "Handasa_VC",
+    "ip": "192.168.1.60",
+    "type": "juniper",
+    "model": "EX2200-PoE-24P",
+    "group": "network-switch"
+  },
+  {
+    "name": "Hashmaliia",
+    "ip": "192.168.1.78",
+    "type": "juniper",
+    "model": "EX2200-PoE-24P",
+    "group": "network-switch"
+  },
+  {
+    "name": "Kesher_Vhagbara",
+    "ip": "192.168.1.44",
+    "type": "juniper",
+    "model": "EX2200-PoE-24P",
+    "group": "network-switch"
+  },
+  {
+    "name": "KitatEihut",
+    "ip": "192.168.1.80",
+    "type": "juniper",
+    "model": "EX2200-PoE-24P",
+    "group": "network-switch"
+  },
+  {
+    "name": "Kronot",
+    "ip": "192.168.1.77",
+    "type": "juniper",
+    "model": "EX2200-PoE-24P",
+    "group": "network-switch"
+  },
+  {
+    "name": "LA",
+    "ip": "192.168.1.71",
+    "type": "juniper",
+    "model": "EX2200-PoE-24P",
+    "group": "network-switch"
+  },
+  {
+    "name": "Mabas",
+    "ip": "192.168.1.90",
+    "type": "juniper",
+    "model": "EX2200-PoE-24P",
+    "group": "network-switch"
+  },
+  {
+    "name": "MahsanOtomati",
+    "ip": "192.168.1.61",
+    "type": "juniper",
+    "model": "EX2200-PoE-24P",
+    "group": "network-switch"
+  },
+  {
+    "name": "Mini_Israel_New",
+    "ip": "192.168.1.92",
+    "type": "juniper",
+    "model": "EX2200-PoE-24P",
+    "group": "network-switch"
+  },
+  {
+    "name": "Mofet_Second_Floor",
+    "ip": "192.168.1.85",
+    "type": "juniper",
+    "model": "EX2200-PoE-24P",
+    "group": "network-switch"
+  },
+  {
+    "name": "Nesher_Gimel_VC",
+    "ip": "192.168.1.165",
+    "type": "juniper",
+    "model": "EX2200-PoE-24P",
+    "group": "network-switch"
+  },
+  {
+    "name": "Nesher_Main_VC",
+    "ip": "192.168.1.164",
+    "type": "juniper",
+    "model": "EX2200-PoE-24P",
+    "group": "network-switch"
+  },
+  {
+    "name": "KO",
+    "ip": "192.168.1.40",
+    "type": "juniper",
+    "model": "EX2200-PoE-24P",
+    "group": "network-switch"
+  },
+  {
+    "name": "Netunim",
+    "ip": "192.168.1.108",
+    "type": "juniper",
+    "model": "EX2200-PoE-24P",
+    "group": "network-switch"
+  },
+  {
+    "name": "R_SHVIL108_C1",
+    "ip": "192.168.1.235",
+    "type": "juniper",
+    "model": "EX2200-PoE-24P",
+    "group": "network-switch"
+  },
+  {
+    "name": "R_SHVIL108_C2",
+    "ip": "192.168.1.236",
+    "type": "juniper",
+    "model": "EX2200-PoE-24P",
+    "group": "network-switch"
+  },
+  {
+    "name": "Rehev108",
+    "ip": "192.168.1.22",
+    "type": "juniper",
+    "model": "EX2200-PoE-24P",
+    "group": "network-switch"
+  },
+  {
+    "name": "WEWORK",
+    "ip": "192.168.1.112",
+    "type": "juniper",
+    "model": "EX2200-PoE-24P",
+    "group": "network-switch"
+  },
+  {
+    "name": "amit",
+    "ip": "8.8.8.8",
+    "type": "Check Point",
+    "model": "C9200 12 ports",
+    "group": "network-switch"
+  }
 ]

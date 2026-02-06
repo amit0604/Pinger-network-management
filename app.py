@@ -1,13 +1,14 @@
-from flask import Flask, render_template, jsonify
+from flask import Flask, render_template, jsonify, request
+from devicesMethods import add_device, load_devices_raw, remove_device, update_device
 from loadDevicesData import load_devices
 from networkMonitor import PING_INTERVAL, start_monitor, get_status
-from pingHistoryRecorder import get_history_summary, get_worst_device
 
 app = Flask(__name__)
 
 # Start background monitor
 start_monitor()
 
+# Flask routes
 @app.route('/')
 def index():
     devices = load_devices()
@@ -18,26 +19,47 @@ def switch_monitor():
     devices = load_devices()
     return render_template('switch-monitor.html', devices=devices)
 
-@app.route('/dashboard')
-def dashboard():
-    devices = load_devices()
-    return render_template('dashboard.html', devices=devices)
+# API routes for device management
+@app.route('/api/devices', methods=['GET'])
+def api_get_devices():
+    return jsonify(load_devices_raw())
+
+@app.route('/api/devices', methods=['POST'])
+def api_add_device():
+    device = request.get_json()
+    if not device:
+        return jsonify({"status": "error", "message": "Invalid JSON payload"}), 400
+
+    try:
+        add_device(device)
+    except ValueError as e:
+        return jsonify({"status": "error", "message": str(e)}), 400
+
+    return jsonify({"status": "success", "message": "Device added successfully"}), 201
+
+@app.route('/api/devices/<ip>', methods=['DELETE'])
+def api_remove_device(ip):
+    remove_device(ip)
+    return jsonify({"status": "ok"})
+
+
+@app.route('/api/devices/<ip>', methods=['PUT'])
+def api_update_device(ip):
+    updated = request.get_json()
+    if not updated:
+        return jsonify({"status": "error", "message": "Invalid JSON payload"}), 400
+
+    try:
+        update_device(ip, updated)
+    except ValueError as e:
+        return jsonify({"status": "error", "message": str(e)}), 404
+
+    return jsonify({"status": "ok"})
 
 @app.route('/api/status')
 def api_status():
     return jsonify(get_status())
 
-@app.route('/api/history')
-def api_history():
-    return jsonify(get_history_summary())
-
-@app.route('/api/worst-device')
-def api_worst_device():
-    ip, uptime = get_worst_device()
-    return jsonify({
-        "ip": ip,
-        "uptime": uptime
-    })
 
 
 if __name__ == '__main__':

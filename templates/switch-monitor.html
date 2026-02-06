@@ -33,6 +33,27 @@
 
     <div class="device-cards" data-device-cards-container></div>
 
+    <!-- Add Device Modal -->
+    <div id="device-modal" class="modal hidden">
+        <div class="modal-content">
+            <h2 id="modal-title">Add Device</h2>
+
+            <input id="dev-name" placeholder="Name" />
+            <input id="dev-ip" placeholder="IP Address" />
+            <input id="dev-type" placeholder="Vendor (Cisco / Juniper)" />
+            <input id="dev-model" placeholder="Model" />
+            <input id="dev-group" placeholder="Group" />
+
+            <div class="modal-actions">
+            <button id="save-device">Save</button>
+            <button id="cancel-device">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <button class="floating-add-btn" id="add-device-btn">＋</button>
+
+
     <template data-device-template>
         <div class="card">
             <div class="title-name"></div>
@@ -40,5 +61,11 @@
             <div class="title-type"></div>
         </div>
     </template>
+
+    <!-- Context menu for device cards -->
+    <div id="card-context-menu" class="context-menu hidden">
+        <div id="context-edit" class="context-item">Edit</div>
+        <div id="context-remove" class="context-item">Remove</div>
+    </div>
 </body>
 </html>
