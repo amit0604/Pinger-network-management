@@ -78,14 +78,14 @@ searchInput.addEventListener('input', e => {
 function updateHealthStatistics(status) {
     const values = Object.values(status);
     const total = values.length;
-    const online = values.filter(v => v).length;
+    const online = values.filter(v => v && v.online).length;
     const onlineList = [];
     const offline = total - online;
     const offlineList = [];
     const availability = total > 0 ? Math.round((online / total) * 100) : 0;
 
-    Object.entries(status).forEach(([ip, isOnline]) => {
-        if (isOnline) onlineList.push(ip);
+    Object.entries(status).forEach(([ip, s]) => {
+        if (s && s.online) onlineList.push(ip);
         else offlineList.push(ip);
     });
 
@@ -157,17 +157,22 @@ setInterval(() => {
         .then(status => {
             updateHealthStatistics(status);
 
-            Object.entries(status).forEach(([ip, online]) => {
+            Object.entries(status).forEach(([ip, s]) => {
                 const card = cardsByIp[ip];
                 if (!card) return;
 
-                card.classList.toggle('online', online);
-                card.classList.toggle('offline', !online);
+                const isOnline = s && s.online;
+                card.classList.toggle('online', isOnline);
+                card.classList.toggle('offline', !isOnline);
 
-                // simple online/offline label (backend provides boolean status)
                 const latencyElement = card.querySelector('.latency');
                 if (latencyElement) {
-                    latencyElement.textContent = online ? 'Online' : 'Offline';
+                    if (isOnline && typeof s.latency === 'number') {
+                        latencyElement.textContent = `${s.latency} ms`;
+                    } else {
+                        const last = s && s.last_seen;
+                        latencyElement.textContent = last ? `Last seen: ${formatLastSeen(last)}` : 'Offline';
+                    }
                 }
             });
         });
@@ -282,3 +287,11 @@ document.addEventListener('click', (e) => {
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') hideContextMenu();
 });
+
+function formatLastSeen(ts) {
+    try {
+        return new Date(ts * 1000).toLocaleString();
+    } catch (e) {
+        return '';
+    }
+}

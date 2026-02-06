@@ -5,8 +5,8 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from loadDevicesData import load_devices
 from pingService import ping_ip
 
-PING_INTERVAL = 5
-MAX_WORKERS = 50
+PING_INTERVAL = 3 # seconds
+MAX_WORKERS = 65 # 64 devices + 1 for safety; adjust as needed based on expected device count and system capabilities
 
 _device_status = {}
 _lock = threading.Lock()
@@ -23,6 +23,9 @@ def monitor_loop():
         if not devices:
             time.sleep(PING_INTERVAL)
             continue
+        prev_status = {}
+        with _lock:
+            prev_status = dict(_device_status)
 
         results = {}
 
@@ -35,9 +38,19 @@ def monitor_loop():
             for future in as_completed(future_map):
                 ip = future_map[future]
                 try:
-                    results[ip] = future.result()
+                    latency = future.result()
                 except Exception:
-                    results[ip] = False
+                    latency = None
+
+                online = latency is not None
+                prev_last = prev_status.get(ip, {}).get('last_seen') if prev_status else None
+                last_seen = time.time() if online else prev_last
+
+                results[ip] = {
+                    'online': online,
+                    'latency': latency,
+                    'last_seen': last_seen
+                }
 
         with _lock:
             _device_status = results

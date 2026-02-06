@@ -72,7 +72,27 @@ body{
     transition: border-color .3s ease, box-shadow .3s ease;
 }
 
-.card > .title-type{
+/* Two-column card layout: left = device info, right = latency */
+.card{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.card-left{
+    flex: 1 1 auto;
+    min-width: 0; /* allow overflow handling */
+}
+
+.card-right{
+    flex: 0 0 120px;
+    text-align: right;
+    font-size: 0.95rem;
+    color: var(--text2);
+}
+
+.card .title-type{
     font-size: .75rem;
     color: var(--text2);
 }
@@ -186,6 +206,16 @@ body{
         width: 48px;
         height: 48px;
         font-size: 1.6rem;
+    }
+    /* Stack card columns on small screens */
+    .card{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .card-right{
+        width: 100%;
+        text-align: left;
+        margin-top: 0.5rem;
     }
 }
 
