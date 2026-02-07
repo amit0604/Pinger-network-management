@@ -1,53 +1,131 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>pinger</title>
-    <link rel="stylesheet" href="../static/style.css">
-    <script src="../static/script-dashboard.js" defer></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Network Dashboard</title>
+  <link rel="stylesheet" href="../static/style.css">
+  <script src="https://cdn.socket.io/4.6.1/socket.io.min.js"></script>
+  <script src="../static/chart-lib.js" defer></script>
+  <script src="../static/script-dashboard.js" defer></script>
 </head>
 <body>
-    <h1 class="page-title">Dashboard</h1>
-    <div class="dashboard-grid">
+  <h1 class="page-title">Network Dashboard</h1>
 
-    <!-- Category: Trends & Stability -->
-    <section class="dashboard-panel">
-        <h2 class="panel-title">Trends & Stability</h2>
-
-        <div class="uptime-meter">
-            <div class="meter-circle">
-                <svg viewBox="0 0 36 36" class="circular-chart">
-                    <path class="circle-bg"
-                          d="M18 2.0845
-                             a 15.9155 15.9155 0 0 1 0 31.831
-                             a 15.9155 15.9155 0 0 1 0 -31.831"/>
-                    <path class="circle"
-                          stroke-dasharray="0, 100"
-                          d="M18 2.0845
-                             a 15.9155 15.9155 0 0 1 0 31.831
-                             a 15.9155 15.9155 0 0 1 0 -31.831"/>
-                </svg>
-                <div class="meter-text">
-                    <span id="uptime-value">--%</span>
-                    <small>Current Availability</small>
-                </div>
-            </div>
+  <div class="dashboard-grid">
+    <div class="panel panel-large" id="panel-global-health" data-tooltip="Global Network Health: overall availability gauge and summary showing online/total devices. Indicates health thresholds and quick summary counts.">
+      <h3>Global Network Health</h3>
+      <div class="panel-body">
+        <div class="gauge" id="global-gauge">
+          <svg class="gauge-svg" viewBox="0 0 100 100" width="120" height="120" aria-hidden="true">
+            <circle class="gauge-bg" cx="50" cy="50" r="40" stroke-width="10" fill="none"></circle>
+            <circle class="gauge-progress" cx="50" cy="50" r="40" stroke-width="10" fill="none" stroke-linecap="round" transform="rotate(-90 50 50)"></circle>
+          </svg>
+          <div class="gauge-value" id="global-availability">--%</div>
         </div>
+        <div class="subtext" id="global-summary"></div>
+      </div>
+    </div>
 
-        <div class="dashboard-panel">
-            <h2>🚨 Worst Device Right Now</h2>
-            <!-- lowest uptime in last 60 minutes -->
-
-            <div id="worst-device" class="worst-device ok">
-                <span class="device-name">All devices online</span>
-            </div>
+    <!-- Average latency moved into Network Metrics panel -->
+    <div class="panel" id="panel-metrics" data-tooltip="Network Metrics: average latency, packet loss, estimated bandwidth and throughput. Uses recent history to compute these values.">
+      <h3>Network Metrics</h3>
+      <div class="panel-body">
+        <div class="metric-row">
+          <div>Average Latency</div>
+          <div id="avg-latency">-- ms</div>
         </div>
+        <div class="metric-row">
+          <div>Packet loss (avg)</div>
+          <div id="avg-packet-loss">--%</div>
+        </div>
+        <div class="metric-row">
+          <div>Estimated Bandwidth</div>
+          <div id="bandwidth-val">N/A</div>
+        </div>
+        <div class="metric-row">
+          <div>Throughput</div>
+          <div id="throughput-val">N/A</div>
+        </div>
+      </div>
+    </div>
 
+    <!-- Offline devices panel placed where Top Latency was -->
+    <div class="panel" id="panel-offline" data-tooltip="Offline Devices: list of devices currently unreachable; shows last seen timestamp. Click a device in the table for details.">
+      <h3>Offline Devices</h3>
+      <div class="panel-body">
+        <ul id="offline-list"></ul>
+      </div>
+    </div>
 
-    </section>
+    <!-- Top latency list moved into Average Latency panel -->
 
-</div>
+    <div class="panel" id="panel-groups" data-tooltip="Groups Health: per-group online/total counts and availability percentage to help identify problematic groups quickly.">
+      <h3>Groups Health</h3>
+      <div class="panel-body">
+        <ul id="groups-list"></ul>
+      </div>
+    </div>
 
+    <div class="panel" id="panel-snmp" data-tooltip="SNMP and recent events: SNMP poll results alongside recent online/offline events.">
+      <h3>Logs & SNMP</h3>
+      <div class="panel-body" id="snmp-panel-body">
+        <div id="logs-merged-container">
+          <ul id="merged-logs"></ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel panel-full" id="panel-top-latency" data-tooltip="Top Latency: current top devices by measured latency. Click to open details.">
+      <h3>Top Latency</h3>
+      <div class="panel-body">
+        <ul id="top-latency-list"></ul>
+      </div>
+    </div>
+
+    <div class="panel panel-full" id="panel-heatmap" data-tooltip="Availability Heatmap: recent online/offline per device (rightmost = most recent).">
+      <h3>Availability Heatmap</h3>
+      <div class="panel-body">
+        <div id="heatmap-container"></div>
+      </div>
+    </div>
+
+    <!-- stacked area chart removed as requested -->
+
+    <div class="panel panel-full" id="panel-device-table">
+      <h3>Device Health Table</h3>
+      <div class="panel-body">
+        <input id="table-search" placeholder="Filter devices by name or IP" />
+        <div id="chart-hint" style="margin-top:0.5rem;color:var(--text2);font-size:0.95rem">Click a device row to view per-device metrics (click again to clear).</div>
+        <div class="table-container">
+          <table id="device-table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>IP</th>
+                <th>Type</th>
+                <th>Group</th>
+                <th>Status</th>
+                <th>Latency</th>
+                <th>Last Seen</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!-- Panel tooltip modal -->
+  <div id="panel-tooltip-modal" class="modal hidden">
+    <div class="modal-content">
+      <h3 id="tooltip-title">Panel info</h3>
+      <div id="tooltip-body" class="tooltip-body" style="max-height:40vh;overflow:auto;margin-top:0.5rem;color:var(--text2);"></div>
+      <div class="modal-actions">
+        <button id="tooltip-close">Close</button>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

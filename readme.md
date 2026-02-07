@@ -179,3 +179,9 @@ b. Assume you have two files in the same directory: my_functions.py (containing 
                 result = add_numbers(10, 20)
                 print(result)
 
+________
+
+ask for:
+make the heatmap itself take 2/3 of the pannel while the names take 1/3 of the pannel.
+make notification show in all pages (like switch-monitor).
+make the notification be in colors.  

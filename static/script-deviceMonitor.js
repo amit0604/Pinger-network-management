@@ -17,6 +17,7 @@ const inputIp = document.getElementById('dev-ip');
 const inputType = document.getElementById('dev-type');
 const inputModel = document.getElementById('dev-model');
 const inputGroup = document.getElementById('dev-group');
+const inputSnmpCommunity = document.getElementById('dev-snmp-community');
 
 let devices = [];
 let cardsByIp = {};
@@ -210,13 +211,14 @@ saveDeviceBtn.addEventListener('click', async () => {
     const type = inputType.value.trim();
     const model = inputModel.value.trim();
     const group = inputGroup.value.trim();
+    const snmp_community = inputSnmpCommunity.value.trim() || 'public';
 
     if (!name || !ip) {
         alert('Please provide both name and IP address.');
         return;
     }
 
-    const device = { name, ip, type, model, group };
+    const device = { name, ip, type, model, group, snmp_community };
 
     try {
         if (editingIp) {
@@ -260,6 +262,7 @@ contextEdit.addEventListener('click', () => {
     inputType.value = device.type || '';
     inputModel.value = device.model || '';
     inputGroup.value = device.group || '';
+    inputSnmpCommunity.value = device.snmp_community || 'public';
     hideContextMenu();
     openModal();
 });

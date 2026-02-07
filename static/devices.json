@@ -4,7 +4,8 @@
     "ip": "192.168.1.217",
     "type": "juniper",
     "model": "EX2200-PoE-24P",
-    "group": "network-switch"
+    "group": "network-switch",
+    "snmp_community": "public"
   },
   {
     "name": "BALK",
@@ -25,7 +26,8 @@
     "ip": "192.168.1.32",
     "type": "juniper",
     "model": "EX2200-PoE-24P",
-    "group": "network-switch"
+    "group": "network-switch",
+    "snmp_community": "public"
   },
   {
     "name": "Guz_Building",
@@ -112,11 +114,12 @@
     "group": "network-switch"
   },
   {
-    "name": "Mabas",
+    "name": "Mabass",
     "ip": "192.168.1.90",
     "type": "juniper",
     "model": "EX2200-PoE-24P",
-    "group": "network-switch"
+    "group": "network-switch",
+    "snmp_community": "public"
   },
   {
     "name": "MahsanOtomati",
@@ -182,11 +185,11 @@
     "group": "network-switch"
   },
   {
-    "name": "Rehev108",
-    "ip": "192.168.1.22",
+    "name": "Amit'siMac",
+    "ip": "192.168.1.203",
     "type": "juniper",
     "model": "EX2200-PoE-24P",
-    "group": "network-switch"
+    "group": "PC"
   },
   {
     "name": "WEWORK",
@@ -196,10 +199,10 @@
     "group": "network-switch"
   },
   {
-    "name": "amit",
+    "name": "DNS",
     "ip": "8.8.8.8",
-    "type": "Check Point",
+    "type": "Server",
     "model": "C9200 12 ports",
-    "group": "network-switch"
+    "group": "DNS"
   }
 ]
